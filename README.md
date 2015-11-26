@@ -1,5 +1,3 @@
 # Stormy
 
-Basic Weather App for Android
-
-** Currently does not support gps tracking **
+Android weather app gives you current weather based on your location.
