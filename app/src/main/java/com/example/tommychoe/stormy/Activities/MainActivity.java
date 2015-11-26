@@ -18,6 +18,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.example.tommychoe.stormy.models.CurrentWeather;
 import com.example.tommychoe.stormy.R;
 import com.google.android.gms.common.ConnectionResult;
@@ -168,6 +170,19 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     }
 
     private void updateDisplay() {
+        //Create YoYo for animation effects
+        YoYo.with(Techniques.FadeIn)
+                .duration(800)
+                .playOn(mTimeLabel);
+
+        YoYo.with(Techniques.FlipInX)
+                .duration(1000)
+                .playOn(mTemperatureLabel);
+
+        YoYo.with(Techniques.FadeIn)
+                .duration(800)
+                .playOn(mLocationLabel);
+
         mTemperatureLabel.setText(String.format("%d", mCurrentWeather.getTemperature()));
         mTimeLabel.setText(String.format("At %s it will be", mCurrentWeather.getFormattedTime()));
         mHumidityValue.setText(String.format("%s", mCurrentWeather.getHumidity()));
